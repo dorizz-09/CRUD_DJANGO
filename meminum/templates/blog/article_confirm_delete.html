@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="profile">
+    <h1>Delete Article</h1>
+    <div class="article-item">
+        <p class="confirmation-text">Are you sure you want to delete the article "{{ object.title }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="action-buttons">
+                <button class="btn-delete" type="submit">
+                    Confirm Delete
+                </button>
+                <a class="btn-cancel" href="{% url 'profile' %}">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

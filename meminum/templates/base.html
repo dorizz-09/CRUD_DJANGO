@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meminum</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/article_form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/delete.css' %}">
+</head>
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1>Meminum</h1>
+        <nav class="author">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'article_create' %}">Write</a>
+            <a href="{% url 'profile' %}">Profile</a>
+        </nav>
+        </div>
+        
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const header = document.querySelector("header");
+            let lastScrollY = window.scrollY;
+    
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > lastScrollY) {
+                
+                    header.classList.add("hidden-header");
+                } else {
+                    
+                    header.classList.remove("hidden-header");
+                }
+                lastScrollY = window.scrollY;
+            });
+        });
+    </script>
+  
+</body>
+</html>

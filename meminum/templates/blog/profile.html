@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="body-profile">
+    <div class="profile">
+        <h1>Creator-09</h1>
+        <p>Author</p>
+        <h2>Your Articles</h2>
+        <div class="article-list-profile">
+            {% for article in articles %}
+            <div class="article-item">
+                <h3>{{ article.title }}</h3>
+                <div>
+                    <a href="{% url 'article_edit' article.pk %}">Edit</a>
+                    <a href="{% url 'article_delete' article.pk %}">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

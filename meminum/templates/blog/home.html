@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="article-list">
+        {% for article in articles %}
+        <div class="article">
+            <a href="{% url 'article_detail' article.pk %}" class="article-link">
+                <div class="article-content">
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.description }}</p>
+                </div>
+            </a>
+            <div class="article-image">
+                {% if article.image %}
+                    <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
